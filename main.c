@@ -3,15 +3,24 @@
 #include <time.h>
 
 int saisie() {
-    int choix;
+    int x;
+    int ok;
+
     do {
-        scanf("%d", &choix);
-        if (choix < 1 || choix > 4) {
-        printf("Choix invalide. Veuillez réessayer : ");
+        printf("Entrez un entier : ");
+        ok = scanf("%d", &x);
+
+        if (!ok) {
+            printf("Erreur : veuillez entrer un nombre entier !\n");
+
+            
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
         }
-    } while (choix < 1 || choix > 4);
-    return choix;
+    } while (!ok);
+    return x;
 }
+
 
 int main() {
 
