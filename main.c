@@ -36,7 +36,7 @@ int main() {
                 default:
                     break;
             }
-         }while (choix != 4)
+         }while (choix != 4);
        
 
     return 0;
