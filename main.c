@@ -5,7 +5,7 @@
 
 int main() {
 
-    int choix;
+    int choix = 0;
 
         printf(" MENU PRINCIPAL \n");
         printf("\n 1 - Memoryx 1 joueur \n ");
@@ -13,29 +13,32 @@ int main() {
         printf(" 3 - Mémoryx 2 joueurs \n ");
         printf(" 4 - Quitter le jeu \n ");
 
-        
-         while (choix < 1 || choix > 4){
+        do{
+          (choix < 1 || choix > 4){
             printf("Entrer votre choix : ");
-            scanf("%d", &choix);
-        }
-
-        int score;
-        switch (choix) {
-            case 1:
+            scanf("%d", &choix);}
+        
+        
+            switch (choix) 
+            {
+                case 1:
+                    
+                    break;
+                case 2:
                 
-                break;
-            case 2:
-               
-                break;
-            case 3:
-                
-                break;
-            case 4:
-                printf("Fin de la session.\n");
-                break;
-            default:
-                printf("Choix invalide.\n");
-        }
+                    break;
+                case 3:
+                    
+                    break;
+                case 4:
+                    printf("Fin de la session.\n");
+                    break;
+                default:
+                    break;
+            }
+         }while (choix != 4)
+       
 
     return 0;
-}
+   
+} 
