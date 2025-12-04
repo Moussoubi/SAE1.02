@@ -2,16 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-int saisie(){
-    int n;
-    do
-    {
-    printf("Entrez votre choix (entre 1 et 4) : ");
-    scanf("%d", &n);
-    }while (1<=n && n<=4);
-    
-    return n;
-}
 
 int main() {
 
@@ -42,8 +32,9 @@ int main() {
                 default:
                     break;
             }
-         while (choix != 4);
+         }while (choix != 4)
        
 
     return 0;
-}
+   
+} 
