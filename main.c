@@ -1,7 +1,14 @@
- #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
+int saisie(){
+    int n;
+    do
+    scanf("%d", &n);
+    while (1<=n && n<=4);
+    return n;
+}
 
 int main() {
 
@@ -12,12 +19,8 @@ int main() {
         printf(" 2 - Memoryx 1 Joueur 1 Bot \n ");
         printf(" 3 - Mémoryx 2 joueurs \n ");
         printf(" 4 - Quitter le jeu \n ");
-
-        do{
-          (choix < 1 || choix > 4){
-            printf("Entrer votre choix : ");
-            scanf("%d", &choix);}
-        
+        printf("Veuillez faire votre choix :");
+        choix = saisie();
         
             switch (choix) 
             {
@@ -36,9 +39,8 @@ int main() {
                 default:
                     break;
             }
-         }while (choix != 4)
+         while (choix != 4);
        
 
     return 0;
-   
-} 
+}
