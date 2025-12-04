@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+/* 7 colonnes et 3 lignes
+for i=0 i<7*3-1
+if i>7-1 \ */
 int saisie_choix() {
     int x;
     int ok;
@@ -23,6 +25,18 @@ int saisie_choix() {
     return x;
 }
 
+int affichetable(int tab, int nbl, int nbc) {
+    for (int i = 0; i < nbl; i++) {
+        for (int j = 0; j < nbc; j++) {
+            printf("%d ", tab[i * nbc + j]);
+        }
+        printf("\n");
+    }
+    return 0;
+    
+}
+
+int 
 
 int main() {
 
