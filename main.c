@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int choix() {
+int saisie_choix() {
     int x;
     int ok;
 
@@ -33,7 +33,7 @@ int main() {
         printf(" 2 - Memoryx 1 Joueur 1 Bot \n ");
         printf(" 3 - Mémoryx 2 joueurs \n ");
         printf(" 4 - Quitter le jeu \n ");
-        choix = choix();
+        choix = saisie_choix();
         
             switch (choix) 
             {
