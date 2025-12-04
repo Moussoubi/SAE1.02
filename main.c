@@ -18,6 +18,11 @@ int saisie() {
             
             int c;
             while ((c = getchar()) != '\n' && c != EOF);
+
+             if (x < min || x > max) {
+            printf("Erreur : la valeur doit être comprise entre %d et %d.\n", min, max);
+            ok = 0; // pour faire reboucler
+        }
         }
     } while (!ok);
     return x;
