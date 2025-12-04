@@ -7,8 +7,10 @@ int saisie() {
     int ok;
 
     do {
-        printf("Entrez un entier : ");
+        do{
+        printf("Veuillez faire un choix entre 1 et 4 : ");
         ok = scanf("%d", &x);
+        } while (x < 1 || x > 4);
 
         if (!ok) {
             printf("Erreur : veuillez entrer un nombre entier !\n");
@@ -31,7 +33,6 @@ int main() {
         printf(" 2 - Memoryx 1 Joueur 1 Bot \n ");
         printf(" 3 - Mémoryx 2 joueurs \n ");
         printf(" 4 - Quitter le jeu \n ");
-        printf("Veuillez faire votre choix :");
         choix = saisie();
         
             switch (choix) 
