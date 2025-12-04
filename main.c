@@ -12,7 +12,7 @@ int saisie() {
         ok = scanf("%d", &x);
         
 
-        if (!ok || x < 1 || x > 4) {
+        if (!ok) {
             printf("Erreur : veuillez entrer un nombre entier !\n");
 
             
