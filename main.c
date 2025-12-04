@@ -2,6 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 
+int saisie() {
+    int choix;
+    do {
+        scanf("%d", &choix);
+        if (choix < 1 || choix > 4) {
+        printf("Choix invalide. Veuillez réessayer : ");
+        }
+    } while (choix < 1 || choix > 4);
+    return choix;
+}
 
 int main() {
 
