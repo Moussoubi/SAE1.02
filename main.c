@@ -7,12 +7,12 @@ int saisie() {
     int ok;
 
     do {
-        do{
+        
         printf("Veuillez faire un choix entre 1 et 4 : ");
         ok = scanf("%d", &x);
-        } while (x < 1 || x > 4);
+        
 
-        if (!ok) {
+        if (!ok || x < 1 || x > 4) {
             printf("Erreur : veuillez entrer un nombre entier !\n");
 
             
