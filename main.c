@@ -1,74 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-/* 7 colonnes et 3 lignes
-for i=0 i<7*3-1
-if i>7-1 \ */
-int saisie_choix() {
-    int x;
-    int ok;
+#include "jeu.h"
+#include "bot.h"
 
-    do {
-        printf("Veuillez faire un choix entre 1 et 4 : ");
-        ok = scanf("%d", &x); 
-        int c;
-        while ((c = getchar()) != '\n' && c != EOF);
-        if (ok == 0 || x < 1 || x > 4) {
-            printf("Erreur : veuillez entrer un nombre entier entre 1 et 4 !\n");
-            ok = 0; // Force la continuité de la boucle
-        } else {
-            ok = 1; // La boucle s'arrêtera
-        }
+int main()
+{
+    srand(time(NULL));
 
-    } while (ok == 0); 
-    
-    return x;
-}
+    int L = 3, C = 7;
+    int n = (L * C - 1) / 2;
+    int tailleTot = L * C;
 
-int affichetable(int tab, int nbl, int nbc) {
-    for (int i = 0; i < nbl; i++) {
-        for (int j = 0; j < nbc; j++) {
-            printf("%d ", tab[i * nbc + j]);
-        }
-        printf("\n");
+    int T[MAX];
+    int P[MAX];
+    int tailleP = tailleTot;
+
+    Joueur j1 = {"Joueur", 0, 0};
+    Joueur bot = {"Bot", 0, 1};
+
+    posini(P, tailleTot);
+    poschange(P, tailleTot);
+    gencartes(T, P, n);
+
+    while (tailleP > 1) {
+        tourHumain(T, P, &tailleP, &j1, L, C);
+        if (tailleP <= 1) break;
+        tourBot(T, P, &tailleP, &bot);
     }
+
+    printf("\nScores finaux :\n");
+    printf("%s : %d\n", j1.pseudo, j1.score);
+    printf("%s : %d\n", bot.pseudo, bot.score);
+
     return 0;
-    
 }
-
-int 
-
-int main() {
-
-    int choix = 0;
-
-        printf(" MENU PRINCIPAL \n");
-        printf("\n 1 - Memoryx 1 joueur \n ");
-        printf(" 2 - Memoryx 1 Joueur 1 Bot \n ");
-        printf(" 3 - Mémoryx 2 joueurs \n ");
-        printf(" 4 - Quitter le jeu \n ");
-        choix = saisie_choix();
-        
-            switch (choix) 
-            {
-                case 1:
-                    printf("Mode 1 joueur selectionné.\n");
-                    break;
-                case 2:
-                
-                    break;
-                case 3:
-                    
-                    break;
-                case 4:
-                    printf("Fin de la session.\n");
-                    break;
-                default:
-                    break;
-            }
-         while (choix != 4);
-       
-
-    return 0;
-   
-} 
