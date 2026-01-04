@@ -23,6 +23,35 @@ int main()
     poschange(P, tailleTot);
     gencartes(T, P, n);
 
+    if (mode == 1) {
+    time_t debut = time(NULL);
+
+    while (tailleP > 1) {
+        tourHumain(T, P, &tailleP, &j1, L, C);
+        printf("Temps écoulé : %ld secondes\n",
+               time(NULL) - debut);
+    }
+
+    printf("\nPartie terminée !\n");
+    printf("Temps total : %ld secondes\n",
+           time(NULL) - debut);
+    return 0;
+    }
+
+    if (mode == 3) {
+    time_t debut = time(NULL);
+
+    while (tailleP > 1) {
+        tourBot(T, P, &tailleP, &bot);
+        printf("Temps écoulé : %ld secondes\n",
+               time(NULL) - debut);
+    }
+
+    printf("\nBot terminé en %ld secondes\n",
+           time(NULL) - debut);
+    return 0;
+    }
+
     while (tailleP > 1) {
         tourHumain(T, P, &tailleP, &j1, L, C);
         if (tailleP <= 1) break;
