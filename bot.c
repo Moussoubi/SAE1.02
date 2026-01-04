@@ -6,29 +6,34 @@ static MemoireCarte mem[100];
 static int nbMem = 0;
 
 /* Cherche une paire connue */
-int chercherPaire()
+int chercherPaire(int *i1, int *i2)
 {
-    for (int i = 0; i < nbMem; i++)
-        for (int j = i + 1; j < nbMem; j++)
-            if (mem[i].valeur == mem[j].valeur)
-                return i;
-    return -1;
+    for (int i = 0; i < nbMem; i++) {
+        for (int j = i + 1; j < nbMem; j++) {
+            if (mem[i].valeur == mem[j].valeur) {
+                *i1 = i;
+                *i2 = j;
+                return 1;
+            }
+        }
+    }
+    return 0;
 }
 
 /* Tour du bot */
 void tourBot(int T[], int P[], int *tailleP, Joueur *bot)
 {
     int pos1, pos2;
-    int idx = chercherPaire();
+    int i1, i2;
 
-    if (idx != -1) {
-        pos1 = mem[idx].position;
-        pos2 = mem[idx + 1].position;
+    if (chercherPaire(&i1, &i2)) {
+    pos1 = mem[i1].position;
+    pos2 = mem[i2].position;
     } else {
-        pos1 = P[rand() % (*tailleP)];
+    pos1 = P[rand() % (*tailleP)];
+    pos2 = P[rand() % (*tailleP)];
+    while (pos2 == pos1)
         pos2 = P[rand() % (*tailleP)];
-        while (pos2 == pos1)
-            pos2 = P[rand() % (*tailleP)];
     }
 
     printf("\nBot joue %d et %d\n", pos1, pos2);
