@@ -7,7 +7,7 @@
 static MemoireCarte mem[MEM_MAX];
 static int nbMem = 0;
 
-/* Vérifie si une position est encore jouable */
+// Vérifie si une position est encore jouable 
 int positionValide(int pos, int P[], int tailleP)
 {
     for (int i = 0; i < tailleP; i++)
@@ -16,7 +16,7 @@ int positionValide(int pos, int P[], int tailleP)
     return 0;
 }
 
-/* Ajoute ou met à jour la mémoire */
+// Ajoute ou met à jour la mémoire 
 void memoriserCarte(int pos, int val)
 {
     if (val <= 0) return; // ignore Joker et cartes retirées
@@ -35,7 +35,7 @@ void memoriserCarte(int pos, int val)
     }
 }
 
-/* Supprime de la mémoire les cartes retirées */
+// Supprime de la mémoire les cartes retirées 
 void nettoyerMemoire(int P[], int tailleP)
 {
     int i = 0;
@@ -49,7 +49,7 @@ void nettoyerMemoire(int P[], int tailleP)
     }
 }
 
-/* Recherche une paire connue */
+// Recherche une paire connue 
 int chercherPaire(int *i1, int *i2)
 {
     for (int i = 0; i < nbMem; i++) {
@@ -64,13 +64,13 @@ int chercherPaire(int *i1, int *i2)
     return 0;
 }
 
-/* Choix aléatoire d'une position inconnue si possible */
+// Choix aléatoire d'une position inconnue si possible 
 int choisirPositionAleatoire(int P[], int tailleP)
 {
     return P[rand() % tailleP];
 }
 
-/* Tour du bot */
+// Tour du bot 
 void tourBot(int T[], int P[], int *tailleP, Joueur *bot)
 {
     int pos1, pos2;
@@ -93,18 +93,18 @@ void tourBot(int T[], int P[], int *tailleP, Joueur *bot)
     int v1 = T[pos1];
     int v2 = T[pos2];
 
-    /* Gestion Joker */
+    // Gestion Joker 
     if (v1 == 0 || v2 == 0) {
         printf("Bot a tiré le Joker\n");
         jokgest(T, (v1 == 0 ? pos1 : pos2), P, *tailleP);
         return;
     }
 
-    /* Mémorisation */
+    // Mémorisation 
     memoriserCarte(pos1, v1);
     memoriserCarte(pos2, v2);
 
-    /* Paire trouvée */
+    // Paire trouvée 
     if (v1 == v2) {
         printf("Paire trouvée par le bot !\n");
         bot->score++;

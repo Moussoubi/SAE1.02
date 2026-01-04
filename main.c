@@ -10,9 +10,10 @@ int main()
     printf("Mode de jeu :\n");
     printf("1 - Solo (humain)\n");
     printf("2 - Duel humain vs bot\n");
+    printf("3 - Solo (bot)\n")
     printf("Choix : ");
     scanf("%d", &mode);
-    
+
     srand(time(NULL));
 
     int L = 3, C = 7;

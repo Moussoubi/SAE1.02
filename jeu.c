@@ -3,14 +3,14 @@
 #include <unistd.h>
 #include "jeu.h"
 
-/* Initialisation de P */
+// Initialisation de P 
 void posini(int P[], int taille)
 {
     for (int i = 0; i < taille; i++)
         P[i] = i;
 }
 
-/* Mélange de P */
+// Mélange de P 
 void poschange(int P[], int taille)
 {
     for (int i = 0; i < taille; i++) {
@@ -21,7 +21,7 @@ void poschange(int P[], int taille)
     }
 }
 
-/* Génération des cartes */
+// Génération des cartes 
 void gencartes(int T[], int P[], int n)
 {
     T[P[0]] = 0; // Joker
@@ -33,7 +33,7 @@ void gencartes(int T[], int P[], int n)
     }
 }
 
-/* Affichage faces cachées */
+// Affichage faces cachées 
 void affichCache(int P[], int tailleP, int L, int C)
 {
     int present[MAX] = {0};
@@ -53,8 +53,8 @@ void affichCache(int P[], int tailleP, int L, int C)
     }
 }
 
-/* Gestion du Joker */
-void jokgest(int T[], int posJoker, int P[], int tailleP)
+// Gestion du Joker 
+void gestjoker(int T[], int posJoker, int P[], int tailleP)
 {
     int r = rand() % tailleP;
     int autre = P[r];
@@ -64,7 +64,7 @@ void jokgest(int T[], int posJoker, int P[], int tailleP)
     T[autre] = tmp;
 }
 
-/* Retirer une carte */
+// Retirer une carte 
 void retirerCarte(int T[], int P[], int *tailleP, int pos)
 {
     T[pos] = -1;
@@ -78,7 +78,7 @@ void retirerCarte(int T[], int P[], int *tailleP, int pos)
     }
 }
 
-/* Tour joueur humain */
+// Tour joueur humain 
 void tourHumain(int T[], int P[], int *tailleP, Joueur *j, int L, int C)
 {
     int pos1, pos2;
@@ -91,7 +91,7 @@ void tourHumain(int T[], int P[], int *tailleP, Joueur *j, int L, int C)
 
     if (T[pos1] == 0) {
         printf("Joker !\n");
-        jokgest(T, pos1, P, *tailleP);
+        gestjoker(T, pos1, P, *tailleP);
         return;
     }
 
@@ -101,7 +101,7 @@ void tourHumain(int T[], int P[], int *tailleP, Joueur *j, int L, int C)
 
     if (T[pos2] == 0) {
         printf("Joker !\n");
-        jokgest(T, pos2, P, *tailleP);
+        gestjoker(T, pos2, P, *tailleP);
         return;
     }
 
